@@ -1,11 +1,15 @@
 <mat-toolbar color="primary">
     <span> &nbsp; </span> 
     <span noWrap=false> Weather App </span>
-    <span class="example-spacer"></span>
     <span> &nbsp;</span>
     <!-- <button mat-icon-button (click)="addCity()">
         <mat-icon aria-label="add City icon">add</mat-icon>
     </button> -->
+    <button mat-icon-button [routerLink]="['/cities']">
+      <mat-icon aria-label="return Home">home</mat-icon>
+    </button>
+    
+    <span class="example-spacer"></span>
     <button mat-icon-button [routerLink]="['/cities','add']">
         <mat-icon aria-label="add City icon">add</mat-icon>
     </button>

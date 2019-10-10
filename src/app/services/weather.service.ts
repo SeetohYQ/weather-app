@@ -2,11 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
+import { Weather } from '../models/weather';
+
 @Injectable({
   providedIn: 'root'
 })
 export class WeatherService {
-  private countries = [
+
+  model = new Weather("Singapore",0,0,0,"", 0,0);
+  WEATHER_API_KEY = "476e23fe1116f4e69d2a3e68672604e1";
+  imageUrl = "https://www.nea.gov.sg/assets/images/map/base-853.png";
+  
+  countries = [
     {countryName: 'China', city: 'Beijing'},
     {countryName: 'India', city: 'New Delhi'},
     {countryName: 'Malaysia', city: 'Kuala Lumpur'},
@@ -55,5 +62,26 @@ export class WeatherService {
       this.imgMapBasedCity.push({city: country.city, imageUrl: imgUrl });
     }
   }
-
+  
+  getWeatherFromAPI(city: string){
+    Object.keys(this.imgMapBasedCity).find(value=>{
+      if(this.imgMapBasedCity[value].city === city){
+        this.imageUrl = this.imgMapBasedCity[value].imageUrl;
+      }
+    })
+    this.getWeather(city, this.WEATHER_API_KEY).then((result)=>{
+      this.model.cityName = city;
+      this.model.temp = result.main.temp;
+      this.model.pressure = result.main.pressure;
+      this.model.humidity =  result.main.humidity;
+      this.model.description =  result.weather[0].description;
+      this.model.windDegree = result.wind.deg || 'NA';
+      this.model.windSpeed = result.wind.speed;
+      //this.model = new Weather(city,result.main.temp,result.main.pressure,result.main.humidity,result.weather[0].description,result.wind.deg,result.wind.speed);
+    }).catch((error)=>{
+      console.log(error);
+    })
+    return this.model;
+  }
+  
 }

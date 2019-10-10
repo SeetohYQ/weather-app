@@ -1,8 +1,7 @@
 <mat-card class="example-card">
-    <a [routerLink]="['/cities','1']">Test</a>
     <div fxLayout="row" fxLayoutAlign="space-between">
         <p>
-            {{selectedCountry.city}}, {{selectedCountry.countryName}}
+          {{selectedCountry.city}}, {{selectedCountry.countryName}}
         </p>
         <button type="button" (click)="onReturn()">Back</button>
     </div>
