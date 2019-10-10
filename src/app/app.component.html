@@ -1,0 +1,48 @@
+<mat-toolbar color="primary">
+    <span> &nbsp; </span> 
+    <span noWrap=false> Weather App </span>
+    <span class="example-spacer"></span>
+    <span> &nbsp;</span>
+    <!-- <button mat-icon-button (click)="addCity()">
+        <mat-icon aria-label="add City icon">add</mat-icon>
+    </button> -->
+    <button mat-icon-button [routerLink]="['/cities','add']">
+        <mat-icon aria-label="add City icon">add</mat-icon>
+    </button>
+</mat-toolbar>
+<div fxLayoutAlign="center">
+    <router-outlet></router-outlet>
+</div>
+
+<!-- <mat-card class="example-card">
+    <img mat-card-image [src]="imageUrl" alt="Photo of Weather">
+    <mat-card-content>
+      <p>
+          <mat-form-field>
+              <mat-label>Countries</mat-label>
+              <select matNativeControl placeholder="City" [(ngModel)]="model.cityName" name="city" (change)="fetchWeatherByCity($event)"
+              #city="ngModel">
+              <option *ngFor="let country of countries"
+              [value]="country.city">
+              {{ country.city }} , {{ country.countryName }}
+              </option>
+              </select>
+          </mat-form-field>
+      </p>
+      <p>
+        Temperature : {{model.temp - 273.15 | number}}
+      </p>
+      <p>
+        Pressure : {{model.pressure | number}} hPa
+      </p>
+      <p>
+        Humidity : {{model.humidity | number}} %
+      </p>
+      <p>
+        Remarks : {{model.description }} 
+      </p>
+      <p>
+        Wind Speed - Degree : {{model.windSpeed }} - {{model.windDegree }} 
+      </p>
+    </mat-card-content>
+</mat-card> -->

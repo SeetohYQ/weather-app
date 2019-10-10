@@ -1,0 +1,27 @@
+<mat-card class="example-card">
+    <a [routerLink]="['/cities','1']">Test</a>
+    <div fxLayout="row" fxLayoutAlign="space-between">
+        <p>
+            {{selectedCountry.city}}, {{selectedCountry.countryName}}
+        </p>
+        <button type="button" (click)="onReturn()">Back</button>
+    </div>
+    <mat-card-content>
+      <p>
+        Temperature : {{model.temp - 273.15 | number}}
+      </p>
+      <p>
+        Pressure : {{model.pressure | number}} hPa
+      </p>
+      <p>
+        Humidity : {{model.humidity | number}} %
+      </p>
+      <p>
+        Remarks : {{model.description }} 
+      </p>
+      <p>
+        Wind Speed - Degree : {{model.windSpeed }} - {{model.windDegree }} 
+      </p>
+    </mat-card-content>
+    <img mat-card-image [src]="imageUrl" alt="Photo of Weather" class='re-size'>
+</mat-card>

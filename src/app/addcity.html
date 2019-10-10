@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Add City</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="City" [(ngModel)]="data.city">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Country" [(ngModel)]="data.country">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Image Url" [(ngModel)]="data.imageurl">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="primary" style="width : 15em;" [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+</div>

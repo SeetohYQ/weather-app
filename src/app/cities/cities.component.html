@@ -1,0 +1,4 @@
+<mat-nav-list>
+    <mat-list-item role="listitem" *ngFor="let country of countries; let i = index"
+    [routerLink]= "['/cities', i]">{{country.city}}, {{country.countryName}}</mat-list-item>
+</mat-nav-list>

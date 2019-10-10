@@ -1,0 +1,20 @@
+<form [formGroup]="form" (ngSubmit)="onAdd()" fxLayout="column">
+    <mat-form-field>
+        <input type="text" matInput placeholder="City" formControlName="city"> 
+        <mat-error *ngIf="form.get('city').invalid && form.get('city').touched">
+            <mat-error *ngIf="form.get('city').errors['required']">
+                Required!
+            </mat-error>
+            <mat-error *ngIf="form.get('city').errors['existingCity']">
+                City already exists!
+            </mat-error>
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Country" formControlName="country"> 
+    </mat-form-field>
+    <mat-form-field>
+        <input type="text" matInput placeholder="Image URL" formControlName="imageUrl"> 
+    </mat-form-field>
+    <button mat-button type="submit" [disabled]="form.invalid">Save</button>
+</form>
